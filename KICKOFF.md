@@ -1,5 +1,13 @@
 # Containers, Pipelines and Azure
 
+## Learning Objectives
+
+- [ ] I can build and deploy a simple web app to a hosted cloud solution
+- [ ] I can integrate a CI/CD Pipeline to my projects
+- [ ] I know what containerization is and when to use it
+- [ ] I can see changes I push to my codebase reflected in production automatically
+## Intro
+
 How does an app go from running on localhost to the internet ? Well, there are numerous ways you could do this but lets start at talking about how this was done once upon a time. From there, we can understand the need for pipelines, containers and ultimately a service like Azure.
 
 Once upon a time, if I was using a language like C# with the .NET Framework, I would compile my application to a production build. From there, I would buy a server (a dedicated, physical machine somewhere in the world that I could access via SSH). I would then install a bunch of dependencies on that server, namely a Web Server like Nginx or Apache, a database driver like Postgres, and the .NET runtime so that I could run my application. 
@@ -52,6 +60,14 @@ There are plently more benefits of containerization, which I'm sure you'll disco
 ## Azure 
 
 The final piece of the puzzle we will be covering is Microsoft Azure Cloud Service. Azure, or it's main competitor, AWS, are cloud computing services that attempt to offset some or all of the above processes, as well as a host of of other capabilities to a remote cloud computing solution. We gain cost effective solutions that allow for rapid scalability depending on demand for our applications.
+
+For our purposes, we'll be utlising the [App Service](https://azure.microsoft.com/en-gb/services/app-service/)
+
+The App Service, is *something* like Heroku. We'll be able to publish our web apps directly to the App Service and have them hosted online for us to view. Unlike Heroku, we'll be building our code and deploying it to a Docker container, which we will send to Azure for hosting rather than a server running the code directly as Heroku normally would.
+
+By the end of the week, we would hope to have an application set up so that commits to github trigger our CI/CD pipeline, which automatically creates a docker image and deploys it to Azure.
+
+
 
 
 
