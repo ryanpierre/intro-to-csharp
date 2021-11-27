@@ -51,5 +51,7 @@ There are plently more benefits of containerization, which I'm sure you'll disco
 
 ## Azure 
 
-The final piece of the puzzle we will be covering is Microsoft Azure Cloud Service
+The final piece of the puzzle we will be covering is Microsoft Azure Cloud Service. Azure, or it's main competitor, AWS, are cloud computing services that attempt to offset some or all of the above processes, as well as a host of of other capabilities to a remote cloud computing solution. We gain cost effective solutions that allow for rapid scalability depending on demand for our applications.
+
+
 
