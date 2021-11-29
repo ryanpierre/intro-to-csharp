@@ -29,6 +29,9 @@
 
 ## Useful links
 
+- Dotnet project structure as recommended by Microsoft .NET team lead:
+    https://gist.github.com/davidfowl/ed7564297c61fe9ab814
+
 - Some material from Josue's course that I'd like to get inspiration from:
     : https://github.com/makersacademy/devops-course/blob/main/workshops/week-2/ci_cd_overview.md
     : https://github.com/makersacademy/devops-course/blob/main/workshops/week-1/welcome_to_devops.md

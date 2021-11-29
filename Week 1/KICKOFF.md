@@ -31,4 +31,4 @@ This module will be quite a bit more independant than bootcamp was. We'll be wor
 
 ## What next ? 
 
-Head on over to [Three Ways](https://github.com/makersacademy/slug/tree/intro-csharp/materials/universe/language_intros/three_ways/csharp) when you're ready to begin your challenge for Week 1 ! 
+Head on over to [Three Ways](https://github.com/ryanpierre/three_ways_csharp_temp) when you're ready to begin your challenge for Week 1 ! 
