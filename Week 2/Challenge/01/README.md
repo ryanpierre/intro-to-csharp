@@ -1,19 +1,5 @@
 # Making a simple web app with C# and ASP.net
 
-Your first task for this week will be to create a simple web app with C# and ASP.NET
-
-- Razor Views ? Razor View Runtime Compilation ?
- - Razor Pages is a newer, simplified web application programming model. It removes much of the ceremony of ASP.NET MVC by adopting a file-based routing approach. Each Razor Pages file found under the Pages directory equates to an endpoint. Razor Pages have an associated C# objected called the page model, which holds each page's behavior. Additionally, each page works on the limited semantics of HTML, only supporting GET and POST methods.
- - https://www.jetbrains.com/dotnet/guide/tutorials/basics/razor-pages/
-- Startup ? Program ? what are these default files in the ASP project ?
-  - https://www.c-sharpcorner.com/article/what-is-startup-class-and-program-cs-in-asp-net-core/
-
-The web app should just serve a simple hello world page ! that's it.
-
-- Create unit tests project
-- Create controller tests - render the ViewResults from the controller methods and test not null. check the ViewBag message matches what we expect.
-- Talk about type casting - we can solve the actionresult/viewresult problem either by casting or by changing the controller class to use ViewResult - OO tip - always use the most specific type possible. viewresult implements actionresult, but since we know the specific type it will be returning, we can tighten the scope and make our tests not have to use casting.
-
 ## Introduction 
 
 Your first task is going to be creating a simple web app using ASP.NET. .NET is a variety of libraries packaged together that microsoft develops and maintains in order to make development quick in the microsoft family of languages (C#, F#, etc)
@@ -21,6 +7,12 @@ Your first task is going to be creating a simple web app using ASP.NET. .NET is 
 ASP.NET is an extension of that library package, which contains common tools and libraries for building web apps. 
 
 We won't be too concerned with building the app for now, we'll cover that in more detail in week 4 and week 5. For now, we're just going to cover the basics of getting an app set up in Visual Studio.
+
+## Learning objectives
+- Create an MVC application in ASP.NET
+- Write unit tests for controllers in ASP.NET
+- Explain ActionResults
+- Explain Type Casting
 
 ## Task 
 
@@ -117,11 +109,48 @@ Another technique we can use in other scenarios where it's not possible to restr
   }
 ```
 
+Another way to write this is 
+
+```csharp
+  ViewResult result = controller.Index() as ViewResult;
+```
+
+We can also make the test a bit more specific. If we have a method called `Index` in our controller, then it will automatically render a view called Index if it can be found. However, we can also change the controller code to read:
+
+```csharp
+  return View("Index");
+```
+
+and then change our test to the following:
+
+```csharp
+ [TestMethod]
+  public void Can_Render_Index()
+  {
+      var mock = new Mock<ILogger<HomeController>>();
+
+      HomeController controller = new(_mockLogger.Object);
+
+      // We add the casting before controller.Index();
+      ViewResult result = (ViewResult)controller.Index();
+
+      Assert.AreEqual("Index", result.ViewName);
+  }
+```
+
+In order to have a more specific test (i.e. that the privacy page was rendered)
+
 Go ahead and try running the application. You'll likely receive an error that says you need a valid certificate to run https. Hit 'run' and follow the dialogues to install the microsoft local https certificate on your keychain. You should now be able to see the basic boilerplate web app in your browser.
 
 What we're doing here is creating a [Self Signed Certificate](https://en.wikipedia.org/wiki/Self-signed_certificate). These are useful in development for working https, but not suitable for production. We'll talk about Certificate Authorities at a later excercise, but for now suffice to say our self signed certifcate is not signed by a certifcate authority, and users visiting our website would receive a "This website's connection is insecure" warning at least in chrome.
 
-Once you've finished writing all of your tests for the HomeController, let's move on to the next excercise.
+Once you've finished writing all of your tests for the HomeController methods, move on to the next excercise.
+
+Useful reading:
+- [Creating unit tests in C# ASP.NET](https://docs.microsoft.com/en-us/aspnet/mvc/overview/older-versions-1/unit-testing/creating-unit-tests-for-asp-net-mvc-applications-cs)
+- [ASP.NET Action Results](https://rachelappel.com/2013/04/02/asp-net-mvc-actionresults-explained/)
+- [The as keyword in C#](https://stackoverflow.com/questions/7566212/when-should-you-use-the-as-keyword-in-c-sharp)
+- 
 
 
 
