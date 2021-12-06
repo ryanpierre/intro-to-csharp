@@ -107,7 +107,7 @@ Currently, we need to publish and build our app before we can run it in a contai
 - Installs dependencies for our app *on the docker container*
 - Builds/Compiles the code *on the docker container* rather than our local machine
 
-If you've done this correctly, you should be able to build and run your docker image without the need to run dotnet publish :)
+If you've done this correctly, you should be able to build and run your docker image without the need to run dotnet publish
 
 ### Resources
 
