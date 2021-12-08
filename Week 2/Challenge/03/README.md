@@ -16,16 +16,29 @@ This allows us to just focus on what we do best: build apps ! Azure hopes to sol
 
 ## To the cloud !
 
-You should already have an invite to create an Azure account from your coach. Go ahead and click "accept invitation" to create that account if you haven't already and log in.
+The first thing we'll need to do before we can put our app onto Azure's cloud services is to [create a Docker Hub Account](https://hub.docker.com/signup). You'll have to create a unique docker id you'll use for your docker services. Choose the Free plan and finish signing up. 
 
-Alternatively, if you'd like to follow the process on your own to have a more realistic outlook, [make an account with Azure](https://azure.microsoft.com/en-us/free/). 
+Ideally, you'll make your own account to better match what you'd likely be doing in the real world. If you're not comfortable using your credit card for a check, ask your coach to make you an account instead. If you're okay with that, [make an account with Azure](https://azure.microsoft.com/en-us/free/). 
 
-You'll have to a bit of identity verification either by phone or by ID. You'll also need to provide a valid credit card. Cloud services like Azure expose themselves to security risks by hosting your app, but more importantly they allow a potential user to make massive changes to a companies products. With the higher level of risk, they need to know you're a real person and there is a real way to contact you.  
+Cloud services like Azure expose themselves to security risks by hosting your app, but more importantly they allow a potential user to make massive changes to a company's products. With the higher level of risk, they need to know you're a real person and there is a real way to contact you.  
 
 After the account creation process is complete, you'll be taken to your dashboard. 
+
+## Task
+
+Your task is to deploy your ASP.NET app to docker hub, then to consume it via Azure App Serverice. If this all goes successfully, you should be able to manage your asp net app in the azure app service interface, and view it online via the URL provided.
+
+Docker Hub works something like github. You'll need to make sure the name you give your image when you build it matches the repository name in order for it to get picked up. For example, if my app was called `DockerDemo`, but my docker hub repo was `makerstech/docker-demo`, then I would input into my terminal:
+
+`docker build -t makerstech/docker-demo .` when I'm in my DockerDemo/App directory that contains my Dockerfile. There is a lot of naming confusion here. 
+
+You'll need to learn how to build an image, see a list of images, tag an image, and push it to docker hub first to achieve this. Then, you'll need to connect that to your Microsoft Azure App Service.
 
 ## Resources
 
 - [A fantastic introduction to all things Azure](https://www.azurebarry.com/introduction-to-azure-app-service-part-1/)
 - [A great article about pipelines, and github actions vs azure pipelines](https://docs.microsoft.com/en-us/dotnet/architecture/devops-for-aspnet-developers/actions-vs-pipelines)
+- [Pushing an image to docker hub](https://docs.docker.com/docker-hub/repos/)
+- [Learn about docker tags](https://docs.docker.com/engine/reference/commandline/tag/)
+- [Docker getting started guide](https://docs.docker.com/get-started/)
 
