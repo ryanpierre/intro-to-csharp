@@ -26,13 +26,15 @@ After the account creation process is complete, you'll be taken to your dashboar
 
 ## Task
 
-Your task is to deploy your ASP.NET app to docker hub, then to consume it via Azure App Serverice. If this all goes successfully, you should be able to manage your asp net app in the azure app service interface, and view it online via the URL provided.
+Your task is to deploy your ASP.NET app to docker hub, then to consume it via Azure App Service. If this all goes successfully, you should be able to manage your asp net app in the azure app service interface, and view it online via the URL provided.
 
 Docker Hub works something like github. You'll need to make sure the name you give your image when you build it matches the repository name in order for it to get picked up. For example, if my app was called `DockerDemo`, but my docker hub repo was `makerstech/docker-demo`, then I would input into my terminal:
 
 `docker build -t makerstech/docker-demo .` when I'm in my DockerDemo/App directory that contains my Dockerfile. There is a lot of naming confusion here. 
 
 You'll need to learn how to build an image, see a list of images, tag an image, and push it to docker hub first to achieve this. Then, you'll need to connect that to your Microsoft Azure App Service.
+
+You should be able to visit the URL provided for your Azure App Container and see your app online !
 
 ## Resources
 
